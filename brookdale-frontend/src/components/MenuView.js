@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { Menu } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 export default class MenuView extends Component {
-  state = {};
+  state = {}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state;
+    const { activeItem } = this.state
 
     return (
       <Menu>
         <Menu.Item
-          name="Supplies Needed"
+          name='Supplies Needed'
           active={activeItem === 'Supplies Needed'}
           onClick={this.handleItemClick}
         >
@@ -20,7 +21,7 @@ export default class MenuView extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name="3D Printers"
+          name='3D Printers'
           active={activeItem === '3D Printers'}
           onClick={this.handleItemClick}
         >
@@ -28,20 +29,23 @@ export default class MenuView extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name="GoFundMe"
+          name='GoFundMe'
           active={activeItem === 'GoFundMe'}
-          href="https://www.gofundme.com/f/feed-our-doctors"
+          href='https://www.gofundme.com/f/feed-our-doctors'
         >
           Feed Our Doctors
         </Menu.Item>
-        <Menu.Menu position="right">
-          <Menu.Item
-            name="login"
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-          />
+
+        <Menu.Menu position='right'>
+          <Link to='/login'>
+            <Menu.Item
+              name='login'
+              active={activeItem === 'login'}
+              onClick={this.handleItemClick}
+            />
+          </Link>
         </Menu.Menu>
       </Menu>
-    );
+    )
   }
 }
